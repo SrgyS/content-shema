@@ -1,0 +1,31 @@
+{
+  "name": "content-schema",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen:types": "ts-node scripts/generate-schema-types ./schemas"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SrgyS/content-shema.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SrgyS/content-shema/issues"
+  },
+  "homepage": "https://github.com/SrgyS/content-shema#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "json-schema-to-typescript": "^15.0.4"
+  },
+  "description": ""
+}
