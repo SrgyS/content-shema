@@ -7,125 +7,128 @@
         "blocks"
     ],
     "properties": {
-        "id": {
-            "$ref": "#/definitions/cuid"
-        },
-        "title": {
-            "type": "string"
-        },
-        "blocks": {
-            "type": "array",
-            "items": {
-                "oneOf": [
-                    {
-                        "$ref": "#/block/textBlock"
-                    },
-                    {
-                        "$ref": "#/block/videoBlock"
-                    },
-                    {
-                        "$ref": "#/block/questionBlock"
-                    }
-                ]
+    "id": {
+        "$ref": "#/definitions/cuid"
+    },
+    "title": {
+        "type": "string"
+    },
+    "shortDescription": {
+        "type": "string"
+    },
+    "blocks": {
+        "type": "array",
+        "items": {
+            "oneOf": [
+            {
+                "$ref": "#/block/textBlock"
+            },
+            {
+                "$ref": "#/block/videoBlock"
+            },
+            {
+                "$ref": "#/block/questionBlock"
             }
-        }
+        ]
+    }
+}
     },
     "additionalProperties": false,
     "block": {
-        "textBlock": {
-            "required": [
-                "id",
-                "type",
-                "text"
-            ],
-            "properties": {
-                "id": {
-                    "$ref": "#/definitions/cuid"
-                },
-                "type": {
-                    "const": "text"
-                },
-                "text": {
-                    "type": "string"
-                }
+    "textBlock": {
+        "required": [
+            "id",
+            "type",
+            "text"
+        ],
+        "properties": {
+            "id": {
+                "$ref": "#/definitions/cuid"
             },
-            "additionalProperties": false
+            "type": {
+                "const": "text"
+            },
+            "text": {
+                "type": "string"
+            }
         },
-        "videoBlock": {
-            "required": [
-                "id",
-                "type",
-                "url"
-            ],
-            "properties": {
-                "id": {
-                    "$ref": "#/definitions/cuid"
-                },
-                "type": {
-                    "const": "video"
-                },
-                "url": {
-                    "type": "string"
-                }
+        "additionalProperties": false
+    },
+    "videoBlock": {
+        "required": [
+            "id",
+            "type",
+            "url"
+        ],
+        "properties": {
+            "id": {
+                "$ref": "#/definitions/cuid"
             },
-            "additionalProperties": false
+            "type": {
+                "const": "video"
+            },
+            "url": {
+                "type": "string"
+            }
         },
-        "questionBlock": {
-            "required": [
-                "id",
-                "type",
-                "answerOptions"
-            ],
-            "properties": {
-                "id": {
-                    "$ref": "#/definitions/cuid"
-                },
-                "type": {
-                    "const": "question"
-                },
-                "answerOptions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/answerOption"
-                    }
-                },
-                "explanation": {
-                    "type": "string"
-                },
-                "successMessage": {
-                    "type": "string"
-                },
-                "text": {
-                    "type": "string"
-                }
+        "additionalProperties": false
+    },
+    "questionBlock": {
+        "required": [
+            "id",
+            "type",
+            "answerOptions"
+        ],
+        "properties": {
+            "id": {
+                "$ref": "#/definitions/cuid"
             },
-            "additionalProperties": false
+            "type": {
+                "const": "question"
+            },
+            "answerOptions": {
+                "type": "array",
+            "items": {
+                "$ref": "#/definitions/answerOption"
+            }
+        },
+        "explanation": {
+            "type": "string"
+        },
+        "successMessage": {
+            "type": "string"
+        },
+        "text": {
+            "type": "string"
         }
     },
+    "additionalProperties": false
+}
+    },
     "definitions": {
-        "cuid": {
-            "type": "string",
-            "title": "cuid"
-        },
-        "answerOption": {
-            "type": "object",
-            "required": [
-                "id",
-                "text",
-                "isRight"
-            ],
-            "properties": {
-                "id": {
-                    "$ref": "#/definitions/cuid"
-                },
-                "text": {
-                    "type": "string"
-                },
-                "isRight": {
-                    "type": "boolean"
-                }
+    "cuid": {
+        "type": "string",
+        "title": "cuid"
+    },
+    "answerOption": {
+        "type": "object",
+        "required": [
+            "id",
+            "text",
+            "isRight"
+        ],
+        "properties": {
+            "id": {
+                "$ref": "#/definitions/cuid"
             },
-            "additionalProperties": false
-        }
+            "text": {
+                "type": "string"
+            },
+            "isRight": {
+                "type": "boolean"
+            }
+        },
+        "additionalProperties": false
+    }
     }
 }

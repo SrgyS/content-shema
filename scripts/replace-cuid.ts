@@ -3,12 +3,6 @@ import path from "path";
 import chokidar from "chokidar";
 import { createId } from '@paralleldrive/cuid2';
 
-const ids = [
-  createId(), // 'tz4a98xxat96iws9zmbrgj3a'
-  createId(), // 'pfh0haxfpzowht3oi213cqos'
-  createId(), // 'nc6bzmkmd014706rfda898to'
-];
-
 function replaceCuidInFile(file: string) {
   try {
     let content = fs.readFileSync(file, "utf8");
