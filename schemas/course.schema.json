@@ -1,7 +1,7 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "required": [
+"$schema": "http://json-schema.org/draft-07/schema#",
+"type": "object",
+"required": [
     "id",
     "title",
     "description",
@@ -9,39 +9,39 @@
     "thumbnail",
     "image",
     "product"
-    ],
-    "additionalProperties": false,
-    "properties": {
+],
+"additionalProperties": false,
+"properties": {
     "id": {
-        "$ref": "#/definitions/cuid"
+    "$ref": "#/definitions/cuid"
     },
     "title": {
-        "type": "string",
-        "maxLength": 100
+    "type": "string",
+    "maxLength": 100
     },
     "description": {
-        "type": "string"
+    "type": "string"
     },
     "shortDescription": {
-        "type": "string"
+    "type": "string"
     },
     "thumbnail": {
-        "type": "string",
-        "$comment": "url to image sizes 600x300"
+    "type": "string",
+    "$comment": "url to image sizes 600x300"
     },
     "image": {
-        "type": "string",
-        "$comment": "url to image sizes 1920x600"
+    "type": "string",
+    "$comment": "url to image sizes 1920x600"
     },
     "dependencies": {
-        "type": "array",
-        "items": {
-            "$ref": "#/definitions/cuid"
-        }
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/cuid"
+    }
     },
     "lessons": {
-        "type": "array",
-        "items": {
+    "type": "array",
+    "items": {
         "$ref": "#/definitions/cuid"
     }
 },
@@ -51,38 +51,38 @@
 },
 "definitions": {
 "cuid": {
-        "type": "string",
-        "title": "cuid"
+    "type": "string",
+    "title": "cuid"
     },
     "product": {
-        "oneOf": [
-            {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                    "access"
-                ],
-                "properties": {
-                    "access": {
-                        "const": "free"
-                    }
-                }
-            },
+    "oneOf": [
         {
             "type": "object",
             "additionalProperties": false,
             "required": [
-                "access",
-                "price"
+                "access"
             ],
             "properties": {
                 "access": {
-                    "const": "paid"
-                },
-                "price": {
-                    "type": "number"
+                    "const": "free"
                 }
             }
+        },
+        {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+            "access",
+            "price"
+        ],
+        "properties": {
+            "access": {
+                "const": "paid"
+            },
+            "price": {
+                "type": "number"
+            }
+        }
         }
     ]
 }
